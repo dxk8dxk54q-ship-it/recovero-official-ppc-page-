@@ -19,14 +19,16 @@ const handleLocationShare = () => {
           const lng = position.coords.longitude;
           const mapLink = "https://www.google.com/maps?q=" + lat + "," + lng;
           const message = encodeURIComponent("URGENT: I need recovery. My location: " + mapLink);
-          window.open("https://wa.me/" + phone + "?text=" + message, "_blank");
+          window.location.href = "https://wa.me/" + phone + "?text=" + message;
         },
         () => {
-          // If they hit 'Block', open WhatsApp anyway with this:
+          // Fallback if they block location
           const failMsg = encodeURIComponent("URGENT: I need recovery assistance. (Location blocked).");
-          window.open("https://wa.me/" + phone + "?text=" + failMsg, "_blank");
+          window.location.href = "https://wa.me/" + phone + "?text=" + failMsg;
         }
       );
+    } else {
+      window.location.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent("URGENT: I need recovery assistance.");
     }
   };
   const steps = [
