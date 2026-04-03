@@ -11,21 +11,22 @@ export default function App() {
   const phoneNumber = "023 9200 0000"; // Placeholder Portsmouth number
   const [expandedStep, setExpandedStep] = useState<number>(1);
 const handleLocationShare = () => {
+    const phone = "447366302341";
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const lat = position.coords.latitude;
           const lng = position.coords.longitude;
-          const mapLink = `https://maps.google.com/?q=${lat},${lng}`;
-          const message = `URGENT: I need recovery. My exact location is: ${mapLink}`;
-          window.open(`https://wa.me/447366302341?text=${encodeURIComponent(message)}`, '_blank');
+          const mapLink = "https://www.google.com/maps?q=" + lat + "," + lng;
+          const message = encodeURIComponent("URGENT: I need recovery. My location: " + mapLink);
+          window.open("https://wa.me/" + phone + "?text=" + message, "_blank");
         },
         () => {
-          alert("Please click 'Allow' so we can find your exact location!");
+          // If they hit 'Block', open WhatsApp anyway with this:
+          const failMsg = encodeURIComponent("URGENT: I need recovery assistance. (Location blocked).");
+          window.open("https://wa.me/" + phone + "?text=" + failMsg, "_blank");
         }
       );
-    } else {
-      alert("Your phone doesn't support this feature. Please call us instead.");
     }
   };
   const steps = [
