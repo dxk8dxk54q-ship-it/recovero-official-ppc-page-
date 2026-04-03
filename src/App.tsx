@@ -10,7 +10,24 @@ import { useState } from "react";
 export default function App() {
   const phoneNumber = "023 9200 0000"; // Placeholder Portsmouth number
   const [expandedStep, setExpandedStep] = useState<number>(1);
-
+const handleLocationShare = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          const mapLink = `https://maps.google.com/?q=${lat},${lng}`;
+          const message = `URGENT: I need recovery. My exact location is: ${mapLink}`;
+          window.open(`https://wa.me/447366302341?text=${encodeURIComponent(message)}`, '_blank');
+        },
+        () => {
+          alert("Please click 'Allow' so we can find your exact location!");
+        }
+      );
+    } else {
+      alert("Your phone doesn't support this feature. Please call us instead.");
+    }
+  };
   const steps = [
     {
       id: 1,
@@ -203,13 +220,22 @@ export default function App() {
               >
                 <Phone className="w-8 h-8 fill-black" />
               </motion.div>
-              <span className="tracking-tighter relative z-10">CALL FOR FAST DISPATCH</span>
-            </motion.a>
+             <span className="tracking-tighter relative z-10">CALL FOR FAST DISPATCH</span>
+        </motion.a>
 
-            <p className="mt-4 text-xs font-bold tracking-widest uppercase text-gray-400">
-              APPROVED NETWORK PARTNER | 24/7 SERVICE
-            </p>
+        {/* --- NEW WHATSAPP BUTTON GOES HERE --- */}
+        <button 
+          onClick={handleLocationShare}
+          className="mt-4 w-full bg-[#25D366] text-white font-black py-4 px-6 rounded-xl flex items-center justify-center gap-3 hover:bg-[#1DA851] transition-colors shadow-lg"
+        >
+          <MapPin className="w-6 h-6" />
+          📍 SHARE EXACT LOCATION
+        </button>
+        {/* -------------------------------------- */}
 
+        <p className="mt-4 text-xs font-bold tracking-widest uppercase text-gray-400">
+          APPROVED NETWORK PARTNER | 24/7 SERVICE
+        </p>
             <div className="flex flex-wrap justify-center gap-2 mt-8">
               {["24/7", "UPFRONT QUOTE", "NO MEMBERSHIP"].map((badge) => (
                 <span 
