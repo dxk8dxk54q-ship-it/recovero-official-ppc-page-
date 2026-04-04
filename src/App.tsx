@@ -226,16 +226,7 @@ const handleLocationShare = () => {
              <span className="tracking-tighter relative z-10">CALL FOR FAST DISPATCH</span>
         </motion.a>
 
-        {/* --- NEW WHATSAPP BUTTON GOES HERE --- */}
-        <button 
-          onClick={handleLocationShare}
-          className="mt-4 w-full bg-[#25D366] text-white font-black py-4 px-6 rounded-xl flex items-center justify-center gap-3 hover:bg-[#1DA851] transition-colors shadow-lg"
-        >
-          <MapPin className="w-6 h-6" />
-          📍 SHARE EXACT LOCATION
-        </button>
-        {/* -------------------------------------- */}
-
+        
         <p className="mt-4 text-xs font-bold tracking-widest uppercase text-gray-400">
           APPROVED NETWORK PARTNER | 24/7 SERVICE
         </p>
@@ -491,6 +482,16 @@ const handleLocationShare = () => {
             </span>
           </div>
         </div>
+        {/* --- NEW WHATSAPP BUTTON GOES HERE --- */}
+        <button 
+          onClick={handleLocationShare}
+          className="mt-4 w-full bg-[#25D366] text-white font-black py-4 px-6 rounded-xl flex items-center justify-center gap-3 hover:bg-[#1DA851] transition-colors shadow-lg"
+        >
+          <MapPin className="w-6 h-6" />
+          📍 SHARE EXACT LOCATION
+        </button>
+        {/* -------------------------------------- */}
+
       </footer>
 
       <style>{`
