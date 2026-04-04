@@ -396,7 +396,7 @@ const handleLocationShare = () => {
           📍 SHARE EXACT LOCATION
         </button>
         {/* -------------------------------------- */}
-
+            </div>
       {/* Floating Mobile CTA */}
       <motion.a
         href={`tel:${phoneNumber.replace(/\s/g, '')}`}
