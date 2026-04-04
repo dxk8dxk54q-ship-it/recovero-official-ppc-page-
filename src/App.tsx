@@ -397,6 +397,7 @@ const handleLocationShare = () => {
         </button>
         {/* -------------------------------------- */}
             </div>
+            </div>
           </section>
         </div>
         
