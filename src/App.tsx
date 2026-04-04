@@ -387,37 +387,15 @@ const handleLocationShare = () => {
             </div>
             
             <div className="flex-1 w-full relative group">
-              {/* Map Container - Restored to original Google Maps colors */}
-              <div className="relative aspect-square md:aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-gray-900">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80630.93240899484!2d-1.12745345!3d50.8225027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487442a40733a121%3A0x808560064f774d0!2sPortsmouth!5e0!3m2!1sen!2suk!4v1711838400000!5m2!1sen!2suk"
-                  className="w-full h-full border-0 transition-opacity duration-500"
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Portsmouth Service Area Map"
-                ></iframe>
-                
-                {/* Technical Labels */}
-                <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-black uppercase tracking-widest border border-orange-500/50 pointer-events-none">
-                  LIVE REGION: PORTSMOUTH
-                </div>
-              </div>
-              
-              {/* Technical Labels Footer */}
-              <div className="absolute -bottom-4 -right-4 bg-gray-900 border border-white/10 p-3 rounded-lg shadow-xl hidden md:block z-10">
-                <div className="flex items-center gap-2 mb-1">
-                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-green-500">LIVE NETWORK STATUS</span>
-                </div>
-                <div className="text-[10px] font-mono text-gray-500 uppercase">
-                  AVG ETA: 30-40 MIN
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+             {/* --- NEW WHATSAPP BUTTON GOES HERE --- */}
+        <button 
+          onClick={handleLocationShare}
+          className="mt-4 w-full bg-[#25D366] text-white font-black py-4 px-6 rounded-xl flex items-center justify-center gap-3 hover:bg-[#1DA851] transition-colors shadow-lg"
+        >
+          <MapPin className="w-6 h-6" />
+          📍 SHARE EXACT LOCATION
+        </button>
+        {/* -------------------------------------- */}
 
       {/* Floating Mobile CTA */}
       <motion.a
@@ -482,16 +460,6 @@ const handleLocationShare = () => {
             </span>
           </div>
         </div>
-        {/* --- NEW WHATSAPP BUTTON GOES HERE --- */}
-        <button 
-          onClick={handleLocationShare}
-          className="mt-4 w-full bg-[#25D366] text-white font-black py-4 px-6 rounded-xl flex items-center justify-center gap-3 hover:bg-[#1DA851] transition-colors shadow-lg"
-        >
-          <MapPin className="w-6 h-6" />
-          📍 SHARE EXACT LOCATION
-        </button>
-        {/* -------------------------------------- */}
-
       </footer>
 
       <style>{`
